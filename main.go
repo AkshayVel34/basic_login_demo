@@ -22,12 +22,11 @@ type Credentials struct {
 func main() {
 	var err error
 
-	// ---------------------------------------------------------
-	// FIXED MYSQL CONNECTION STRING
-	// ---------------------------------------------------------
+	//MYSQL CONNECTION STRING
+
 	dbUser := "root"
-	dbPass := "root@134" // your original password (correctly escaped)
-	dbName := "login_demo"
+	dbPass := " " // your original password
+	dbName := " " //name of the database in mysql
 
 	dsn := fmt.Sprintf("%s:%s@tcp(127.0.0.1:3306)/%s", dbUser, dbPass, dbName)
 
@@ -42,9 +41,7 @@ func main() {
 	}
 	log.Println("MySQL connected successfully!")
 
-	//-----------------------------------------------------------
 	// ROUTES
-	//-----------------------------------------------------------
 	http.Handle("/static/", http.StripPrefix("/static/", http.FileServer(http.Dir("./static"))))
 
 	http.HandleFunc("/", serveIndex)
@@ -58,9 +55,7 @@ func main() {
 	log.Fatal(http.ListenAndServe(":8080", nil))
 }
 
-// -----------------------------------------------------------
 // SERVE HTML PAGES
-// -----------------------------------------------------------
 func serveIndex(w http.ResponseWriter, r *http.Request) {
 	w.Header().Set("Content-Type", "text/html; charset=utf-8")
 	http.ServeFile(w, r, "./static/index.html")
@@ -76,9 +71,7 @@ func serveHomePage(w http.ResponseWriter, r *http.Request) {
 	http.ServeFile(w, r, "./static/home.html")
 }
 
-// -----------------------------------------------------------
 // LOGIN API
-// -----------------------------------------------------------
 func loginHandler(w http.ResponseWriter, r *http.Request) {
 	if r.Method != http.MethodPost {
 		http.Error(w, "Method not allowed", http.StatusMethodNotAllowed)
@@ -115,9 +108,7 @@ func loginHandler(w http.ResponseWriter, r *http.Request) {
 	jsonResponse(w, true, "Login successful")
 }
 
-// -----------------------------------------------------------
 // SIGNUP API
-// -----------------------------------------------------------
 func signupHandler(w http.ResponseWriter, r *http.Request) {
 	if r.Method != http.MethodPost {
 		http.Error(w, "Method not allowed", http.StatusMethodNotAllowed)
@@ -141,9 +132,7 @@ func signupHandler(w http.ResponseWriter, r *http.Request) {
 	jsonResponse(w, true, "Signup successful")
 }
 
-// -----------------------------------------------------------
 // JSON Response Utility
-// -----------------------------------------------------------
 func jsonResponse(w http.ResponseWriter, success bool, message string) {
 	w.Header().Set("Content-Type", "application/json")
 	json.NewEncoder(w).Encode(map[string]interface{}{
