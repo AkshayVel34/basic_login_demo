@@ -1,11 +1,84 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <meta charset="UTF-8">
-    <title>Welcome</title>
+
+<meta charset="UTF-8">
+
+<title>MyShop</title>
+
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+
+<style>
+
+body{
+background:#f1f3f6;
+}
+
+.product{
+background:white;
+padding:15px;
+border-radius:8px;
+box-shadow:0 3px 10px rgba(0,0,0,0.1);
+text-align:center;
+}
+
+</style>
+
 </head>
+
 <body>
-    <h1>Basic Three Layer Demo Message</h1>
-    <p>You have successfully logged in.</p>
+
+<nav class="navbar navbar-dark bg-primary">
+<div class="container-fluid">
+
+<span class="navbar-brand">MyShop</span>
+
+<a href="index.html" class="btn btn-light">Logout</a>
+
+</div>
+</nav>
+
+<div class="container mt-4">
+
+<h3>Welcome to MyShop</h3>
+
+<div class="row mt-3">
+
+<div class="col-md-3">
+<div class="product">
+<h5>Product 1</h5>
+<p>₹500</p>
+<button class="btn btn-primary btn-sm">Buy</button>
+</div>
+</div>
+
+<div class="col-md-3">
+<div class="product">
+<h5>Product 2</h5>
+<p>₹1200</p>
+<button class="btn btn-primary btn-sm">Buy</button>
+</div>
+</div>
+
+<div class="col-md-3">
+<div class="product">
+<h5>Product 3</h5>
+<p>₹850</p>
+<button class="btn btn-primary btn-sm">Buy</button>
+</div>
+</div>
+
+<div class="col-md-3">
+<div class="product">
+<h5>Product 4</h5>
+<p>₹300</p>
+<button class="btn btn-primary btn-sm">Buy</button>
+</div>
+</div>
+
+</div>
+
+</div>
+
 </body>
 </html>
